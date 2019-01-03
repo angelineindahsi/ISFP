@@ -55,7 +55,7 @@ ROOT_URLCONF = 'recsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/kisseuki/ISFP/rsp/recsite/movierec/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

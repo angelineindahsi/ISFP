@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block title %}
+
+<h2>latest reviews</h2>
+
+{% endblock %}
+
+{% if latest_review_list %}
+
+<div>
+	{% for review in latest_review_list %}
+	<div>
+		<h4><a href="{% url 'review_detail' review.id %}">
+			{{ review.movie.title }}
+		</a></h4>
+		<h6> rated {{ review.rating }} of 5 by <a href="#">{{review.user_name}}</a></h6>
+		<p>{{ review.comment }}</p>
+	</div>
+	{% endfor %}
+</div>
+{% else %}
+<p>No reviews are available</p>
+{% endif %}
+{% endblock %}

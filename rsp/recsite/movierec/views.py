@@ -3,9 +3,15 @@ from .models import Review, Movie
 
 from .form import ReviewForm
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.models import User
 import datetime
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
 
 def review_list(request):
     latest_review_list = Review.objects.order_by('-pub_date')[:9]
@@ -42,3 +48,12 @@ def add_review(request, pk):
         review.save()
         return HttpResponseRedirect(reverse('movie_detail', args=(movie.id,)))
     return render(request, 'movie_detail.html', {'movie':movie, 'form': form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
+
+class SignUP(generic.CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = reverse_lazy('login')

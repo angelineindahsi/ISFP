@@ -2,7 +2,7 @@
 Movie recommendation application
 
 ```
-cd /Users/kisseuki/ISFP/movierec
+cd path/ISFP/movierec
 python manage.py runserver
 ```
 

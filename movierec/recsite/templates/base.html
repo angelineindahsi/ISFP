@@ -21,7 +21,7 @@
 			<div class="col-sm-2">
 				<br>
 				<center>
-					<img src="" class="responsive-img" style="max-height: 100px" alt="face">
+					<img src="{% static 'image.jpg' %}" class="responsive-img" style="max-height: 100px" alt="face">
 				</center>
 			</div>
 			<div class="col-sm-10">
@@ -44,9 +44,6 @@
 						</li>
 						<li class="nav-item">
 							<a class = "nav-link" href="{% url 'review_list' %}">Latest Reviews</a>
-						</li>
-						<li class="nav-item">
-							<a class = "nav-link "href="%">Contact</a>
 						</li>
 
 						{% if user.is_authenticated %}
